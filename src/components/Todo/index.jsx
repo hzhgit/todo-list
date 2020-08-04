@@ -1,14 +1,29 @@
 import React from 'react'
+import './index.css'
 
 class ToDo extends React.Component {
-    deleteTodo = () =>{
+    constructor(props) {
+        super(props);
+        this.state = {
+            isComplete: false
+        }
+    }
+
+    deleteTodo = () => {
         this.props.deleteTodo(this.props.index);
+    }
+
+
+    complete = () => {
+        this.setState({isComplete: !this.state.isComplete})
     }
 
     render() {
         return (
             <div>
-                <p>{this.props.todo}---------<button onClick={this.deleteTodo}>X</button></p>
+                <p onClick={this.complete} className={this.state.isComplete?"completed":"uncompleted"}>
+                    {this.props.todo}---------<button onClick={this.deleteTodo}>X</button>
+                </p>
             </div>
         )
     }
