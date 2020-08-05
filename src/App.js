@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <HashRouter>
         <span><Link to='/'>ALL TODO LIST</Link></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <span><Link to='/done-todo-list'>DONE TODO LIST</Link></span>
         <Route path="/" exact component={TodoListContainer} />
         <Route path="/done-todo-list" component={DoneListContainer} />
