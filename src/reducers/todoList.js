@@ -6,7 +6,7 @@ const todoList = (state = [], action) => {
         case "INIT_DATA":
             let data = []
             action.data.forEach(item => {
-                data.push({ id: item.id, text: item.content, done: item.status })
+                data.push({ id: item.id, text: item.content, status: item.status })
             });
             return data;
         case 'DELETE_TODO':

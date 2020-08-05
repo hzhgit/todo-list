@@ -15,12 +15,14 @@ class ToDo extends React.Component {
 
     complete = (event) => {
         event.stopPropagation()
-        modifyTodo(this.props.todo.id).then((response) => {
-            this.props.changeStatus(this.props.todo.id)
+        modifyTodo(this.props.todo.id,{id:this.props.todo.id,content:this.props.todo.text,status:!this.props.todo.status}).then((response) => {
+            console.log(response)
+            this.props.changeStatus(this.props.todo.id,{id:response.data.id,content:response.data.content,status:response.data.status})
         })
     }
 
     render() {
+        console.log(this.props.todo.status)
         return (
             <div>
                 <p onClick={this.complete} className={this.props.todo.status ? "completed" : "uncompleted"}>
