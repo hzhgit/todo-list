@@ -1,6 +1,7 @@
 import React from 'react'
 import { getTodoList, addTodo } from '../../store/api'
-import { Button } from 'antd';
+import { Button,Input } from 'antd';
+import './index.css'
 
 class ToDoForm extends React.Component {
     constructor(props) {
@@ -33,7 +34,8 @@ class ToDoForm extends React.Component {
 
         return (
             <div>
-                <input type="text" onChange={this.changeContent} />
+                <Input placeholder="Basic usage" onChange={this.changeContent} class={Input}/>
+                <br/>
                 <Button type="primary" size={this.state.size} onClick={this.handleSubmit}>提交</Button>
             </div>
         )
