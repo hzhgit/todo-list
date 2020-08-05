@@ -1,17 +1,19 @@
 import React from 'react'
-import {getTodoList,addTodo} from '../../store/api'
+import { getTodoList, addTodo } from '../../store/api'
+import { Button } from 'antd';
 
 class ToDoForm extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            value: ""
+            value: "",
+            size: 'large',
         }
     }
 
     handleSubmit = (e) => {
-        addTodo(this.state.value,false).then((response) => {
+        addTodo(this.state.value, false).then((response) => {
             this.props.addToDo(response.data.id, response.data.content, response.data.status)
         })
     }
@@ -20,7 +22,7 @@ class ToDoForm extends React.Component {
         this.setState({ value: e.target.value })
     }
 
-    componentDidMount(){
+    componentDidMount() {
         getTodoList().then((response) => {
             this.props.initData(response.data)
         })
@@ -32,7 +34,7 @@ class ToDoForm extends React.Component {
         return (
             <div>
                 <input type="text" onChange={this.changeContent} />
-                <input type="submit" onClick={this.handleSubmit} value="提交" />
+                <Button type="primary" size={this.state.size} onClick={this.handleSubmit}>提交</Button>
             </div>
         )
     }
