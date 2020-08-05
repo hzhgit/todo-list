@@ -3,6 +3,11 @@ import TodoForm from '../components/TodoForm'
 import  {addToDo,initData}  from '../action/index'
 
 
+const mapStateToProps = (state) => {
+    return {
+       todoList: state.todoList
+    }
+ };
 
 const mapDispatchToProps = (dispatch) => {
     return {
@@ -11,5 +16,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-const TodoFormContainer = connect(null, mapDispatchToProps)(TodoForm)
+const TodoFormContainer = connect(mapStateToProps, mapDispatchToProps)(TodoForm)
 export default TodoFormContainer;

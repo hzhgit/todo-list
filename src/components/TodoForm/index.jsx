@@ -1,5 +1,5 @@
 import React from 'react'
-import {getTodoList} from '../../store/api'
+import {getTodoList,addTodo} from '../../store/api'
 
 class ToDoForm extends React.Component {
     constructor(props) {
@@ -11,7 +11,9 @@ class ToDoForm extends React.Component {
     }
 
     handleSubmit = (e) => {
-        this.props.addToDo(this.state.value,false)
+        addTodo(this.state.value,false).then((response) => {
+            this.props.addToDo(response.data.id, response.data.content, response.data.status)
+        })
     }
 
     changeContent = (e) => {

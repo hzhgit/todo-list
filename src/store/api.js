@@ -14,11 +14,11 @@ export function deleteTodo(id) {
   })
 }
 
-export function addTodo(todo) {
+export function addTodo(text,status) {
   return axios({
     method: 'post',
     url: `https://5e9ec500fb467500166c4658.mockapi.io/todos`,
-    data: todo
+    data: {content:text,status:status}
   })
 }
 
