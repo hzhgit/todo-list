@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 import { deleteTodo,modifyTodo } from '../../store/api'
-
+import { Divider } from 'antd';
 
 class ToDo extends React.Component {
 
@@ -28,6 +28,7 @@ class ToDo extends React.Component {
                 <p onClick={this.complete} className={this.props.todo.status ? "completed" : "uncompleted"}>
                     {this.props.todo.text}---------<button onClick={this.deleteTodo}>X</button>
                 </p>
+                <Divider />
             </div>
         )
     }
