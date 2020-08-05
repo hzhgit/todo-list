@@ -27,7 +27,7 @@ class ToDo extends React.Component {
         return (
             <div>
                 <p onClick={this.complete} className={this.props.todo.status ? "completed" : "uncompleted"}>
-                    {this.props.todo.text}---------
+                    {this.props.todo.text}
                     <Button shape="circle" danger type="primary"  icon={<DeleteOutlined />} onClick={this.deleteTodo}></Button>
                 </p>
                 <Divider />
