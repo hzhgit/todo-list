@@ -5,6 +5,10 @@ export const addToDo = (id, text, status) => ({
     status: status
 })
 
+export const deleteToDo = (id) => ({
+     type: 'DELETE_TODO', id: id 
+})
+
 export const changeStatus = (id) => ({
     type: "CHANGE_STATUS",
     id: id
