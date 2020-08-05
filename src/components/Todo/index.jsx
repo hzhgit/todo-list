@@ -1,7 +1,8 @@
 import React from 'react'
 import './index.css'
 import { deleteTodo,modifyTodo } from '../../store/api'
-import { Divider } from 'antd';
+import { Divider,Button } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons'
 
 class ToDo extends React.Component {
 
@@ -26,7 +27,8 @@ class ToDo extends React.Component {
         return (
             <div>
                 <p onClick={this.complete} className={this.props.todo.status ? "completed" : "uncompleted"}>
-                    {this.props.todo.text}---------<button onClick={this.deleteTodo}>X</button>
+                    {this.props.todo.text}---------
+                    <Button shape="circle" danger type="primary"  icon={<DeleteOutlined />} onClick={this.deleteTodo}></Button>
                 </p>
                 <Divider />
             </div>
