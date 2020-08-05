@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-   deleteTodo: (index) => { dispatch({ type: 'DELETE_TODO', index: index }) },
+   deleteTodo: (id) => { dispatch({ type: 'DELETE_TODO', id: id }) },
    changeStatus: (id) => { dispatch(changeStatus(id)) }
 })
 

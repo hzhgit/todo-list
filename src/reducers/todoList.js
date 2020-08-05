@@ -6,15 +6,18 @@ const todoList = (state = [], action) => {
         case "INIT_DATA":
             let data = []
             action.data.forEach(item => {
-                data.push({id:item.id,text:item.content,done:item.status})
+                data.push({ id: item.id, text: item.content, done: item.status })
             });
             return data;
         case 'DELETE_TODO':
-            return [...state].filter((item, id) => (id !== action.id));
+            return [...state].filter(item => item.id !== action.id);
         case 'CHANGE_STATUS':
             let stateCopy = [...state]
-            stateCopy[action.id].status = !stateCopy[action.id].status
-            console.log(stateCopy)
+            stateCopy.forEach((item) => {
+                if (item.id === action.id) {
+                    item.status = !item.status
+                }
+            })
             return [...stateCopy]
         default:
             return state;
