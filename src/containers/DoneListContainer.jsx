@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { changeStatus } from '../action';
+import { changeStatus ,deleteToDo } from '../action';
 import DoneToDoList from '../components/DoneToDoList';
 
 const mapStateToProps = (state) => {
@@ -9,7 +9,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-   deleteTodo: (index) => { dispatch({ type: 'DELETE_TODO', index: index }) },
+   deleteTodo: (id) => { dispatch(deleteToDo(id)) },
    changeStatus: (id) => { dispatch(changeStatus(id)) }
 })
 
