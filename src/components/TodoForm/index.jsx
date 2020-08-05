@@ -1,4 +1,5 @@
 import React from 'react'
+import {getTodoList} from '../../store/api'
 
 class ToDoForm extends React.Component {
     constructor(props) {
@@ -15,6 +16,12 @@ class ToDoForm extends React.Component {
 
     changeContent = (e) => {
         this.setState({ value: e.target.value })
+    }
+
+    componentDidMount(){
+        getTodoList().then((response) => {
+            this.props.initData(response.data)
+        })
     }
 
 
